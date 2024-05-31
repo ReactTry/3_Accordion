@@ -31,11 +31,11 @@ function App() {
     <>
       <h1>User List</h1>
       <div>
-        <UserDisplay userList={userList} deleteUser={deleteUser} />
+        <UserDisplay userList={userList} deleteUser={deleteUser} /> 
       </div>
 
       <h1>Accordion</h1>
-      <div>
+      <div  >
         <Accordion />
       </div>
     </>
