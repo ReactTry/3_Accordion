@@ -21,7 +21,7 @@ const Accordion = () => {
     {
       id: 4,
       Name: "Andra Pradesh",
-      lang: "Speaking Andra",
+      lang: "Speaking Telugu",
     },
     {
       id: 5,
