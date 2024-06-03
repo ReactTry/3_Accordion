@@ -34,22 +34,23 @@ const Accordion = () => {
   const [activeLang, setActiveLang] = useState(null);
 
   const showLang = (id) => {
-    if (activeLang === id) {
-      setActiveLang(null);
-    } else {
-      setActiveLang(id);
-    }
+    // if (activeLang === id) {
+    //   setActiveLang(null);
+    // } else {
+    //   setActiveLang(id);
+    // }
+    activeLang === id ? setActiveLang(null) : setActiveLang(id);
   };
 
   return (
     <>
       <div>
-        <div class="accordion">
+        <div className="accordion">
           <h2>Languages</h2>
 
           {accord.map((items) => {
             return (
-              <div className="accordion-content">
+              <div key={items.id} className="accordion-content">
                 <header>
                   <span className="accordion-content-title">{items.Name}</span>
                   <i
