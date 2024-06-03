@@ -35,7 +35,7 @@ function App() {
       </div>
 
       <h1>Accordion</h1>
-      <div  >
+      <div>
         <Accordion />
       </div>
     </>

@@ -33,11 +33,11 @@ const Accordion = () => {
   const [show, setShow] = useState(false);
   const [activeLang, setActiveLang] = useState(null);
 
-  const showLang = (index) => {
-    if (activeLang === index) {
+  const showLang = (id) => {
+    if (activeLang === id) {
       setActiveLang(null);
     } else {
-      setActiveLang(index);
+      setActiveLang(id);
     }
   };
 
@@ -47,19 +47,19 @@ const Accordion = () => {
         <div class="accordion">
           <h2>Languages</h2>
 
-          {accord.map((items, index) => {
+          {accord.map((items) => {
             return (
               <div className="accordion-content">
                 <header>
                   <span className="accordion-content-title">{items.Name}</span>
                   <i
-                    onClick={() => showLang(index)}
+                    onClick={() => showLang(items.id)}
                     className="accordion-content-show"
                   >
-                    {index === activeLang ? "Hide" : "Show"}
+                    {activeLang === items.id ? "Hide" : "Show"}
                   </i>
                 </header>
-                {activeLang === index && (
+                {activeLang === items.id && (
                   <p className="accordion-content-description">{items.lang}</p>
                 )}
               </div>
