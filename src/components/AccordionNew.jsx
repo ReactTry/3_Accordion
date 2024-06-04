@@ -1,6 +1,26 @@
 import React, { useState } from "react";
 import "./styles/accordion.css";
 
+const AccordionDetails = ({ items }) => {
+  const [showDetails, setshowDetails] = useState(false);
+
+  return (
+    <div className="accordion-content">
+      <header>
+        <span className="accordion-content-title">{items.Name}</span>
+        <i
+          onClick={() => setshowDetails((prev) => !prev)}
+          className="accordion-content-show"
+        >
+          {showDetails ? "Hide" : "Show"}
+        </i>
+      </header>
+      {showDetails && (
+        <p className="accordion-content-description">{items.lang}</p>
+      )}
+    </div>
+  );
+};
 const obj = [
   {
     id: 1,
@@ -29,18 +49,13 @@ const obj = [
   },
 ];
 
-const Accordion = () => {
+const AccordionNew = () => {
 
   const [accord, setAccord] = useState(obj);
   const [show, setShow] = useState(false);
   const [activeLang, setActiveLang] = useState(null);
 
   const showLang = (id) => {
-    // if (activeLang === id) {
-    //   setActiveLang(null);
-    // } else {
-    //   setActiveLang(id);
-    // }
     activeLang === id ? setActiveLang(null) : setActiveLang(id);
   };
 
@@ -49,23 +64,11 @@ const Accordion = () => {
       <div>
         <div className="accordion">
           <h2>Languages</h2>
-
           {accord.map((items) => {
             return (
-              <div key={items.id} className="accordion-content">
-                <header>
-                  <span className="accordion-content-title">{items.Name}</span>
-                  <i
-                    onClick={() => showLang(items.id)}
-                    className="accordion-content-show"
-                  >
-                    {activeLang === items.id ? "Hide" : "Show"}
-                  </i>
-                </header>
-                {activeLang === items.id && (
-                  <p className="accordion-content-description">{items.lang}</p>
-                )}
-              </div>
+              <>
+                <AccordionDetails items={items} />
+              </>
             );
           })}
         </div>{" "}
@@ -74,4 +77,4 @@ const Accordion = () => {
   );
 };
 
-export default Accordion;
+export default AccordionNew;

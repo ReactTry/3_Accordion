@@ -6,6 +6,7 @@ import { fetchUsers } from "./api/api";
 import UserDisplay from "./components/UserDisplay";
 
 import Accordion from "./components/Accordion";
+import AccordionNew from "./components/AccordionNew";
 
 function App() {
   const [userList, setUserList] = useState([]);
@@ -34,9 +35,16 @@ function App() {
         <UserDisplay userList={userList} deleteUser={deleteUser} /> 
       </div>
 
-      <h1>Accordion</h1>
+      <h1>Accordion open Only one</h1>
       <div>
         <Accordion />
+      </div>
+
+      
+      <h1>Accordion Open individualy</h1>
+      <div>
+        <AccordionNew />
+
       </div>
     </>
   );
